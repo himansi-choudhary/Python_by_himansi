@@ -1,0 +1,3 @@
+Heloo i'm python 
+my datatypes
+int float string boolean etc

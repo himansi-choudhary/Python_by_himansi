@@ -1,0 +1,79 @@
+✅ What is Exception Handling?
+Exceptions are errors that occur while your program is running.
+Instead of crashing the program, you can handle these errors using:
+- try
+- except
+- else (optional)
+- finally (optional)
+-------------------------------------------------------------------------------------
+🔹 Basic Syntax:
+try:
+    # code that might cause an error
+except ErrorType:
+    # code to run if an error occurs
+else:
+    # runs if there is no error (optional)
+finally:
+    # always runs, error or not (optional)
+---------------------------------------------------------------------------------------
+✅ Example 1: Basic Exception Handling
+try:
+    num = int(input("Enter a number: "))
+    print(f"Your number is {num}")
+except ValueError:
+    print("❌ That's not a valid number!")
+
+📌 Try entering a letter (like abc) to see how the error is handled.
+
+------------------------------------------------------------------------------------------------------
+
+🔺 Raising Exceptions with raise
+Sometimes you want to stop the program or give a custom error when something goes wrong — that’s where raise comes in.
+
+✅ Example 2: raise to throw your own errors
+
+age = int(input("Enter your age: "))
+
+if age < 0:
+    raise ValueError("❌ Age cannot be negative!")
+else:
+    print("Age is valid 👍")
+If the user enters -5, the program will raise an error on purpose.
+
+-----------------------------------------------------------------------------------------------------
+
+✅ Example 3: Full Program with try-except-finally
+
+try:
+    n1 = int(input("Enter number 1: "))
+    n2 = int(input("Enter number 2: "))
+    result = n1 / n2
+except ZeroDivisionError:
+    print("❌ Cannot divide by zero!")
+except ValueError:
+    print("❌ Please enter only numbers.")
+else:
+    print("Result =", result)
+finally:
+    print("✅ Program completed.")
+
+
+🧪 Try entering:
+
+10 and 0 → shows division error
+10 and 2 → works fine
+ten and 2 → shows value error
+
+------------------------------------------------------------------------------------------------
+
+📚 Summary Table:
+_____________________________________________________________________________________
+|__________Key Word__________|________________________Purpose________________________|
+|try	                     |     Block to try risky code                           |
+|except 	                 |     What to do if an error occurs                     |
+|else                    	 |     Runs only if there was no exception               |
+|finally	                 |     Runs no matter what (cleanup, etc.)               |
+|raise          	         |     Manually raise an exception                       |                                |
+|____________________________|_______________________________________________________|
+
+	

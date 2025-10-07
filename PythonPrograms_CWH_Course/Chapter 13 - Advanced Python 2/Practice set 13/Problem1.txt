@@ -1,0 +1,26 @@
+Q 1.Create two virtual environments, install few packages in the first one. 
+    How do you create a similar environment in the second one?
+ANS :- 
+
+opens folder practice set3 in file explorer
+right click + open with terminal
+
+> virtualenv env1  + Enter
+
+> virtualenv env2 + Enter
+
+# so these are 2 environments which we have made now to activate any of these :-
+# 1st env1 
+> .\env1\Scripts\activate.ps1   + Enter
+> pip install pandas
+> pip install pyjokes
+> pip freeze > requirements.txt 
+# after this requirements.txt file will genrated automatically
+
+> deactivate
+
+
+# 2st env2 
+> .\env2\Scripts\activate.ps1   + Enter
+> pip install -r .\requirements.txt
+# after doing this all medules wich are installed in env1 they also will be installed in env2 

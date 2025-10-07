@@ -1,0 +1,100 @@
+🧾 TYPES DEFINITIONS IN PYTHON
+Python allows adding type hints using:
+: for variable type hinting
+-> for function return type hinting
+
+
+
+
+🧩 TYPES DEFINITIONS IN PYTHON
+
+🔹 What are Type Hints?
+Type hints tell Python (and developers) what type of data you're working with.
+Think of it like putting a label on your variables and functions. 
+Python doesn't enforce these hints, but they help you write clean and error-free code.
+
+
+✅ Example 1: Variable Type Hint
+    age: int = 25
+This means:
+age is expected to be an integer (int).
+Python will not stop you if you assign a string to age, but tools like VS Code or PyCharm may warn you.
+
+
+✅ Example 2: Function Type Hint
+    def greeting(name: str) -> str:
+        return f"Hello, {name}!"
+    print(greeting("Alice"))  # Output: Hello, Alice!
+
+Explanation:
+name: str  → the input to this function should be a string.
+-> str     → the output (return value) will be a string.
+This makes it easier to understand the function without reading the full code — 
+"takes a name as string, returns a greeting as string."
+
+
+
+
+💡 ADVANCED TYPE HINTS
+Python also supports more complex types using the typing module.
+
+✅ Import First:
+from typing import List, Tuple, Dict, Union
+
+
+🔹 List Type
+numbers: List[int] = [1, 2, 3, 4, 5]
+This means:
+numbers is a list of integers.
+If you put a string inside the list by mistake, you'll get a warning from a type checker.
+
+
+🔹 Tuple Type
+person: Tuple[str, int] = ("Alice", 30)
+This means:
+person is a tuple with two values:
+First should be a str
+Second should be an int
+
+
+🔹 Dictionary Type
+scores: Dict[str, int] = {"Alice": 90, "Bob": 85}
+This means:
+scores is a dictionary
+Keys are strings
+Values are integers
+
+
+🔹 Union Type
+identifier: Union[int, str] = "ID123"
+identifier = 12345  # Also valid
+This means:
+identifier can be either an integer or a string.
+It accepts both types.
+
+
+
+
+📚 Why use type hints?
+✅ Helps others (and your future self) read and understand your code
+✅ Useful for auto-complete in editors like VS Code
+✅ Helps find bugs early using tools like mypy or pylint
+✅ Makes your code self-documenting (clear without needing comments)
+
+
+
+
+
+🧠 Summary Table
+______________________________________________________________________________________
+|___________Syntax___________|________________________Meaning________________________|
+|name: str	                 |     Variable name is a string                         |
+|age: int	                 |     Variable age is an integer                        |
+|def func(x: int) -> int:	 |     Function takes and returns integer                |
+|List[int]	                 |     A list of integers                                |
+|Tuple[str, int]	         |     A tuple of string and integer                     |
+|Dict[str, int]	             |     A dictionary with string keys and integer values  |
+|Union[int, str]	         |     Can be int OR str                                 |
+|____________________________|_______________________________________________________|
+
+

@@ -1,0 +1,11 @@
+Q7. Explore the ‘Flask’ module and create a web server using Flask & Python.
+
+> pip install flask
+
+on internet search -> flask module -> select (welcome to flask) website -> Click quick start -> 
+-> below (A Minimal Application ) there is a code, so copy that code paste in Problem7.py 
+-> and read (use instruction) below tat code
+
+
+after that copied code write --> app.run() -> in problem7.py and run 
+so a app is made

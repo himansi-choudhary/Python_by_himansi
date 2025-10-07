@@ -1,0 +1,99 @@
+🔹 What is finally?
+- The finally block in Python always runs, whether:
+- the try block succeeds
+- or except catches an error
+- or the function has a return
+
+It's very useful for cleanup actions, like:
+- Closing a file
+- Releasing a database connection
+- Saying "Goodbye" before ending a program
+
+------------------------------------------------------------------------------------------------------
+
+✅ Part 1: Basic Code
+try:
+    a = int(input("Hey, Enter a number: "))
+    print(a)
+
+except Exception as e:
+    print(e)
+
+finally:
+    print("I am Inside finally")
+
+💡 Explanation:
+If user inputs 5 → prints 5 and then I am Inside finally
+If user inputs abc → error caught → prints error + I am Inside finally
+✅ So yes — finally always runs even without return or function call.
+
+----------------------------------------------------------------------------------------------------
+
+✅ Part 2: Inside a Function with return
+def main():
+    try:
+        a = int(input("Hey, Enter a number: "))
+        print(a)
+        return
+
+    except Exception as e:
+        print(e)
+        return
+
+    finally:
+        print("I am Inside finally")
+
+main()
+
+💡 Explanation:
+Here’s what’s special:
+- You used return inside both try and except
+- Python should exit the function after return
+- But it still runs finally before exiting
+
+📌 Why?
+Because Python guarantees that finally will execute even if you use return, break, or continue inside try/except.
+-------------------------------------------------------------
+✅ Output Example:
+🧪 If user enters: hello
+Hey, Enter a number: hello
+invalid literal for int() with base 10: 'hello'
+I am Inside finally
+
+
+🧪 If user enters: 42
+Hey, Enter a number: 42
+42
+I am Inside finally
+
+-------------------------------------------------------------------------------------------------------
+
+✅ Why is finally useful?
+It’s useful when you want to:
+Always run cleanup code
+Close files or connections
+Log something before exiting
+Or show a final message before function exits
+
+-----------------------------------------------------------------------------------------------------------
+
+🎯 Real Example with File Handling:
+def read_file():
+    try:
+        f = open("data.txt", "r")
+        content = f.read()
+        print(content)
+        return
+    except FileNotFoundError:
+        print("❌ File not found")
+        return
+    finally:
+        print("Closing file (if it was opened)")
+        try:
+            f.close()
+        except:
+            pass
+
+
+Even if file isn't found, the finally still runs and tries to close the file.
+

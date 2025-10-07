@@ -1,0 +1,12 @@
+# 6. Run pip freeze for the system interpreter. Take the contents and create a similar .ImportError
+
+
+opens folder practice set3 in file explorer
+right click + open with terminal
+
+> pip freeze > requirements.txt
+# this will create file in folder
+
+> pip virtualenv himansienv
+> .\himansienv\Scripts\activate.ps1
+> pip install -r .\requirements.txt

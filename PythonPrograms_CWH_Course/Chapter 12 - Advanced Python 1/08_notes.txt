@@ -1,0 +1,99 @@
+handbook :- 
+IF __NAME__== ‘__MAIN__’ IN PYTHON
+‘__name__’ evaluates to the name of the module in python from where the program is
+ran.
+If the module is being run directly from the command line, the ‘ __name__’ is set to
+string “__main__”. Thus, this behaviour is used to check whether the module is run
+directly or imported to another file.
+
+================================================================================================
+
+chat gpt
+
+🧠 Topic: if __name__ == "__main__" in Python
+This looks a bit strange at first...
+But it's a very important best practice in Python — especially when writing larger programs, projects, or reusable code.
+
+✅ What Does __name__ Mean?
+Every Python file/module has a built-in variable called __name__.
+
+Its value depends on how the file is being used.
+
+Case	                                  `__name__ Value
+If run directly	                         "__main__"
+If imported                              Name of the module (filename)
+
+------------------------------------------------------------------------------------------------------------
+
+🔎 Example 1: When run directly
+file: hello.py
+code 1:------
+print(__name__)  # Output: __main__
+
+if __name__ == "__main__":
+    print("This file is running directly")
+
+
+📌 When you run python hello.py, the output is:
+code 2:-------
+__main__
+This file is running directly
+
+------------------------------------------------------------------------------------------------------------
+
+🔎 Example 2: When imported
+
+Now create another file:
+file: main.py
+code 1:-------
+import Hello
+
+📌 When you run python main.py, the output is:
+code 2:-------
+hello  # (because __name__ inside hello.py is now 'hello')
+Since __name__ != "__main__", the if block inside hello.py does NOT run.
+
+------------------------------------------------------------------------------------------------------------
+
+🎯 Why Use if __name__ == "__main__"?
+✅ Prevents certain code from running when the file is imported as a module.
+✅ Only runs that block when the file is executed directly.
+
+------------------------------------------------------------------------------------------------------------
+
+✅ Example with a Function:
+def greet():
+    print("Hello from greet!")
+
+if __name__ == "__main__":
+    greet()  # Only runs if file is executed directly
+
+
+Now this file:
+- Can be imported elsewhere
+- Will not auto-run greet() unless executed directly
+
+------------------------------------------------------------------------------------------------------
+
+🧪 Real Example:
+
+code 1:--------
+# calculator.py
+def add(x, y):
+    return x + y
+
+if __name__ == "__main__":
+    print(add(5, 3))  # Will only run when you run calculator.py directly
+
+code 2:--------
+# main.py
+import calculator
+print(calculator.add(10, 2))  # Works fine, won't print 5+3
+
+------------------------------------------------------------------------------------------------
+
+✅ Summary Table
+         Part	                                       Meaning
+__name__	                        Built-in variable that tells Python the module’s name
+__main__	                        Special value that means “run this file directly”
+if __name__ == "__main__":	        Only run this block if this file is the main entry point

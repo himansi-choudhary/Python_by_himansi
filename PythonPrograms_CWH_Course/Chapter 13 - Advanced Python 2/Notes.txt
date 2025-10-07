@@ -1,0 +1,130 @@
+✅ 1. VIRTUAL ENVIRONMENT
+🔹 What is it?
+A virtual environment is a separate Python workspace where:
+ - You can install packages without affecting global Python.
+ - Helpful when working on multiple projects that need different libraries or versions.
+-------------------------------------------------------------------------------------------------
+🔧 How to use:
+
+1 Install virtualenv:
+    (bash)
+        pip install virtualenv
+
+2 Create a new environment:
+    (bash)
+        virtualenv myprojectenv
+This creates a folder myprojectenv/ with an isolated Python setup.
+
+3 Activate the environment:
+ - On Windows:
+    (bash)
+        myprojectenv\Scripts\activate-
+ - On macOS/Linux:
+    (bash)
+        source myprojectenv/bin/activate
+You'll see something like this in terminal:
+    (scss)
+        (myprojectenv) C:\Users\Himansi>
+
+✅ Now you can install packages just for this environment.
+
+4 Deactivate:
+    (bash)
+        deactivate
+-------------------------------------------------------------------------------------------------
+✅ 2. PIP FREEZE 
+
+🔹 What is it?
+Shows a list of all installed packages and their versions.
+    (bash)
+        pip freeze
+
+🔹 Save to file:
+    (bash)
+        pip freeze > requirements.txt
+
+📁 Creates a file like:
+    (ini)
+        flask==2.1.0
+        numpy==1.24.3
+
+🔁 Recreate the same environment elsewhere:
+    (bash)
+        pip install -r requirements.txt
+-------------------------------------------------------------------------------------------------
+✅ 3. LAMBDA FUNCTIONS 
+
+🔹 What is a lambda?
+A short-hand function written in one line using lambda keyword.
+    (python)
+        # Normal function
+        def square(x):
+            return x * x
+
+        # Lambda version
+        square = lambda x: x * x
+        print(square(6))  # Output: 36
+
+✅ Multiple parameters:
+    (python)
+        sum3 = lambda a, b, c: a + b + c
+        print(sum3(1, 2, 3))  # Output: 6
+-------------------------------------------------------------------------------------------------
+✅ 4. JOIN METHOD (for strings)
+🔹 Combines list into a string:
+    (python)
+        fruits = ["apple", "mango", "banana"]
+        result = ", and, ".join(fruits)
+        print(result)
+        # Output: apple, and, mango, and, banana
+-------------------------------------------------------------------------------------------------
+✅ 5. FORMAT METHOD (for strings)
+🔹 Syntax:
+    (python)
+        "{} is a good {}".format("harry", "boy")
+        # Output: harry is a good boy
+
+        "{1} is a good {0}".format("harry", "boy")
+        # Output: boy is a good harry
+You can use:
+ - {} → default position
+ - {0}, {1} → indexed placeholders
+
+-------------------------------------------------------------------------------------------------
+
+✅ 6. MAP, FILTER, and REDUCE
+🔹 map(function, list)
+Applies the function to each item.
+    (python)
+        nums = [1, 2, 3, 4]
+        squares = list(map(lambda x: x*x, nums))
+        print(squares)  # [1, 4, 9, 16]
+-------------------------------------------------------------------------------------------------
+🔹 filter(function, list)
+Filters items where the function returns True.
+    (python)
+        nums = [1, 2, 3, 4, 5, 6]
+        evens = list(filter(lambda x: x % 2 == 0, nums))
+        print(evens)  # [2, 4, 6]
+-------------------------------------------------------------------------------------------------
+🔹 reduce(function, list)
+Combines all items into a single result (like sum, product).
+    (python)
+        from functools import reduce
+
+        nums = [1, 2, 3, 4]
+        total = reduce(lambda x, y: x + y, nums)
+        print(total)  # 10
+-------------------------------------------------------------------------------------------------
+🧠 Summary Table:
+ 
+Feature	                         Use Case Example
+ virtualenv	             Create isolated Python environments
+ pip freeze	             Save current environment to requirements.txt
+ lambda	                 Short one-line anonymous function
+ join()	                 Join a list of strings
+ format()	             Insert variables into string templates
+ map()	                 Apply function to every item in list
+ filter()	             Filter items based on a condition
+ reduce()	             Reduce list to a single value (e.g., sum)
+
